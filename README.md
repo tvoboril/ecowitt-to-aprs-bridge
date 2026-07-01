@@ -1,5 +1,7 @@
 # Ecowitt → APRS-IS Bridge (polling mode)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Polls the Ecowitt GW3000 live-data endpoint every 60 s, builds an APRS weather
 packet, and pushes it every 10 minutes to any server speaking the standard
 APRS-IS TCP login protocol. That's typically one of:
