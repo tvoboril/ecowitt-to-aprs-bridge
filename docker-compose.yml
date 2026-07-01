@@ -1,0 +1,14 @@
+services:
+  wx-aprs-bridge:
+    build: .
+    image: wx-aprs-bridge:latest
+    container_name: wx-aprs-bridge
+    restart: always
+    network_mode: host          # direct LAN access to the GW3000 and WX3in1
+    env_file:
+      - .env
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
