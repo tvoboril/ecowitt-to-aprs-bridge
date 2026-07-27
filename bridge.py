@@ -147,12 +147,9 @@ def build_aprs_packet(wx: dict) -> str:
     """
     Build the full APRS position+weather packet line (no trailing CRLF).
 
-    Destination "APZWXB" is an unregistered/experimental tocall (the
-    APZxxx range is reserved in the APRS tocalls registry for hobbyist
-    software without an assigned code) — aprs.fi shows this as "Unknown:
-    Experimental" rather than a blank "Unknown" for a plain "APRS" tocall.
-    TODO: once open-sourced, register a real tocall via a PR to
-    aprsorg/aprs-deviceid and swap it in here.
+    Destination "APECWB" is this project's registered APRS tocall (assigned
+    via aprsorg/aprs-deviceid), so aprs.fi identifies the device as
+    "ecowitt-to-aprs-bridge" rather than "Unknown: Experimental".
     """
     rain_in = wx.get("rain_day_in")  # since midnight → both p and P
 
@@ -169,7 +166,7 @@ def build_aprs_packet(wx: dict) -> str:
         f"{_solar(wx.get('solar_wm2'))}"
         + APRS_COMMENT
     )
-    return f"{APRS_CALL}>APZWXB,TCPIP*:{body}"
+    return f"{APRS_CALL}>APECWB,TCPIP*:{body}"
 
 # ---------------------------------------------------------------------------
 # APRS-IS-protocol TCP injector

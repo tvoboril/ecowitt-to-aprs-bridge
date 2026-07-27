@@ -55,7 +55,7 @@ debug rf on
 
 When the bridge injects a packet you'll see:
 ```
-(RF) Sending beacon: YOURCALL-13>APZWXB,TCPIP*:!3337.57N/08639.76W_...
+(RF) Sending beacon: YOURCALL-13>APECWB,TCPIP*:!3337.57N/08639.76W_...
 ```
 and the TX LED on the radio connector briefly keys. **This is the only definitive
 proof of RF TX** — aprs.fi alone is not sufficient (the WX3in1 also has its own
@@ -120,12 +120,10 @@ line, not necessarily `APRS_CALL` — servers validate the passcode against the
 login callsign). An invalid passcode logs in unverified and your packets will
 be silently dropped by the server.
 
-The packet's AX.25 destination (tocall) is `APZWXB` — an unregistered code
-in the `APZxxx` range reserved for hobbyist software without an assigned
-tocall (aprs.fi shows this as "Unknown: Experimental"). Once this project
-has a real name/repo, register a proper tocall via a PR to
-[aprsorg/aprs-deviceid](https://github.com/aprsorg/aprs-deviceid) and swap
-it into `build_aprs_packet()`.
+The packet's AX.25 destination (tocall) is `APECWB`, this project's
+registered APRS tocall (assigned via
+[aprsorg/aprs-deviceid](https://github.com/aprsorg/aprs-deviceid)), so
+aprs.fi identifies the device as `ecowitt-to-aprs-bridge`.
 
 ---
 
